@@ -27,3 +27,10 @@ export const getAllDevicesWithPreference = async (preference: 'all' | 'high_prio
     where: { notificationPreference: preference },
   })
 }
+
+export async function updateCollegePreference(deviceId: string, college: string): Promise<void> {
+  await prisma.device.update({
+    where: { id: deviceId },
+    data: { collegePreference: college },
+  });
+}

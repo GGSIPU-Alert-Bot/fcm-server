@@ -30,3 +30,16 @@ export const setFCMToken = async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Failed to update FCM token' })
   }
 }
+
+export async function setCollegePreference(req: Request, res: Response) {
+  const { deviceId } = req.params;
+  const { college } = req.body;
+
+  try {
+    await deviceService.updateCollegePreference(deviceId, college);
+    res.json({ message: 'College preference updated successfully' });
+  } catch (error) {
+    console.error('Error updating college preference:', error);
+    res.status(500).json({ error: 'Failed to update college preference' });
+  }
+}
