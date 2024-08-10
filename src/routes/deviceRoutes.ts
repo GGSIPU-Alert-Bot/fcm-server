@@ -5,6 +5,6 @@ const router = express.Router();
 
 router.put('/:deviceId/preferences', setNotificationPreference);
 router.put('/:deviceId/fcm-token', setFCMToken);
-router.put('/devices/:deviceId/college-preference', setCollegePreference);
+router.put('/:deviceId/college-preference', setCollegePreference);
 
 export default router;
